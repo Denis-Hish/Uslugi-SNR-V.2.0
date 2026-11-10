@@ -282,6 +282,8 @@ h4 {
   width: 100%;
   background-color: var(--color-bg);
   will-change: transform;
+
+  box-shadow: rgba(0, 0, 0, 0.05) 0 2px 20px;
 }
 
 .header__container {
@@ -298,11 +300,16 @@ h4 {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-
   flex-shrink: 0;
+
+  img {
+    display: block;
+    max-height: 60px;
+    width: auto;
+  }
 }
 
-.logo__symbol {
+/* .logo__symbol {
   position: relative;
 
   display: flex;
@@ -356,7 +363,7 @@ h4 {
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.04em;
-}
+} */
 
 /* NAVIGATION */
 
@@ -931,7 +938,8 @@ h4 {
 .footer {
   padding-block: 35px;
 
-  border-top: 1px solid rgba(36, 39, 34, 0.12);
+  /* border-top: 1px solid rgba(36, 39, 34, 0.12); */
+  box-shadow: rgba(0, 0, 0, 0.05) 0 -2px 20px;
 }
 
 .footer__container {
