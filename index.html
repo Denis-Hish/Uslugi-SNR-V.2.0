@@ -1,727 +1,89 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<title>Oferta usługowa | Nadzieja Rodzinie</title>
 	<meta name="description"
 		content="Stowarzyszenie Nadzieja Rodzinie — profesjonalne usługi z misją społeczną. Poligrafia, catering, restauracja, pralnia i wiele więcej.">
-
 	<meta name="theme-color" content="#f5f4ef">
-
-	<title>Oferta usługowa | Nadzieja Rodzinie</title>
-
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon.png">
-
-	<!-- Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-	<link
-		href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet">
-
+	<link rel="icon" type="image/png" sizes="32x32" href="/img/icon.png">
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/animations.css">
-
 	<!-- GSAP -->
-	<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
-
+	<script src="js/gsap.min.js" defer></script>
 	<!-- JavaScript -->
 	<script src="js/script.js" defer></script>
-	<script src="js/animations.js" defer></script>
 </head>
 
 <body>
-
-	<!-- =====================================
-       HEADER
-  ====================================== -->
-
-	<header class="header" id="header">
-
-		<div class="container header__container">
-
-			<a href="#" class="logo" aria-label="Nadzieja Rodzinie — strona główna">
-
-				<!-- Tymczasowy znak graficzny — do zastąpienia logo -->
-				<!-- <span class="logo__symbol" aria-hidden="true">
-					<span></span>
-					<span></span>
-				</span>
-
-				<span class="logo__text">
-					<span>Stowarzyszenie</span>
-					<strong>NADZIEJA<br>RODZINIE</strong>
-				</span> -->
-
-				<img src="/assets/logo.png" alt="Logo Nadzieja Rodzinie">
-
+	<header class="header">
+		<div class="container">
+			<a href="#" class="logo">
+				<!-- <img src="/img/logo.png" alt="Logo Nadzieja Rodzinie"> -->
+				Usługi SNR
 			</a>
-
-			<nav class="nav" id="navigation">
-
-				<a href="#oferta" class="nav__link nav__link--active">
-					Oferta
-				</a>
-
-				<a href="#o-nas" class="nav__link">
-					O nas
-				</a>
-
-				<a href="#kontakt" class="nav__link">
-					Kontakt
-				</a>
-
+			<nav class="nav">
+				<a href="#oferta" class="active">Oferta</a>
+				<a href="#about">O nas</a>
+				<a href="#contact">Kontakt</a>
 			</nav>
-
-			<button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false"
-				aria-controls="navigation">
-				<span class="menu-toggle__label">menu</span>
-				<svg class="menu-toggle__icon" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-					<rect width="2" height="2" fill="currentColor" />
-					<rect class="dot-edge" x="5" width="2" height="2" fill="currentColor" />
-					<rect x="10" width="2" height="2" fill="currentColor" />
-					<rect class="dot-edge" y="5" width="2" height="2" fill="currentColor" />
-					<rect x="5" y="5" width="2" height="2" fill="currentColor" />
-					<rect class="dot-edge" x="10" y="5" width="2" height="2" fill="currentColor" />
-					<rect y="10" width="2" height="2" fill="currentColor" />
-					<rect class="dot-edge" x="5" y="10" width="2" height="2" fill="currentColor" />
-					<rect x="10" y="10" width="2" height="2" fill="currentColor" />
-				</svg>
-			</button>
-
 		</div>
-
 	</header>
-
-
 	<main>
+		<section>
+			<div class="container">
+				<div class="card">
+					<div class="box title">
+						<h3 class="subtitle line">Nasze usługi</h3>
+						<h2 class="title">Witamy w ofercie usługowej<span>.</span></h2>
+					</div>
+					<div class="box description">
+						<p><a href="#" target="_blank" rel="noopener noreferrer">Stowarzyszenie Nadzieja Rodzinie</a> łączy
+							profesjonalne usługi
+							z misją społeczną. Realizujemy zlecenia rzetelnie i terminowo,
+							tworząc miejsca pracy dla osób z niepełnosprawnościami
+							i wspierając ich aktywność zawodową.</p>
+					</div>
+					<div class="box actions"><button type="button">Button</button></div>
+				</div>
+			</div>
+		</section>
 
-		<!-- =====================================
-         HERO
-    ====================================== -->
 
 		<section class="hero">
-
-			<div class="container hero__container">
-
-				<div class="hero__content">
-
-					<div class="eyebrow hero__eyebrow">
-						<span class="eyebrow__line"></span>
-						<span>Nasze usługi</span>
-						<span class="eyebrow__line"></span>
-					</div>
-
-					<h1 class="hero__title">
-						Witamy w ofercie usługowej<span>.</span>
-					</h1>
-
-					<p class="hero__description">
-						Stowarzyszenie Nadzieja Rodzinie łączy profesjonalne usługi
+			<div class="container">
+				<div class="content">
+					<h3 class="subtitle line">Nasze usługi</h3>
+					<h2 class="title">Witamy w ofercie usługowej<span>.</span></h2>
+					<p><a href="#" target="_blank" rel="noopener noreferrer">Stowarzyszenie Nadzieja Rodzinie</a> łączy
+						profesjonalne usługi
 						z misją społeczną. Realizujemy zlecenia rzetelnie i terminowo,
 						tworząc miejsca pracy dla osób z niepełnosprawnościami
-						i wspierając ich aktywność zawodową.
-					</p>
-
-					<a href="#oferta" class="button button--primary">
-						<span>Poznaj nasze usługi</span>
-
-						<svg viewBox="0 0 24 24" aria-hidden="true">
-							<path d="M5 12h14M12 5l7 7-7 7" />
-						</svg>
-					</a>
-
+						i wspierając ich aktywność zawodową.</p>
+					<button type="button">Button</button>
 				</div>
-
-				<div class="hero__visual">
-
-					<div class="hero__image-wrapper">
-						<img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1400&q=85"
-							alt="Starannie przygotowane opakowania i produkty" class="hero__image" fetchpriority="high">
-					</div>
-
-					<div class="hero__decoration"></div>
-
+				<div class="image">
+					<img src="img/hero-image.jpg" alt="Hero image">
 				</div>
-
 			</div>
-
 		</section>
-
-
-		<!-- =====================================
-         SERVICES
-    ====================================== -->
-
-		<section class="services section" id="oferta">
-
+		<section id="oferta">
 			<div class="container">
-
-				<div class="services__heading">
-
-					<div class="services__heading-main">
-
-						<div class="eyebrow">
-							<span class="eyebrow__line"></span>
-							<span>Nasza oferta</span>
-							<span class="eyebrow__line"></span>
-						</div>
-
-						<h2 class="section-title">
-							10 usług. Jeden wspólny cel<span>.</span>
-						</h2>
-
-					</div>
-
-					<div class="services__note">
-
-						<span class="services__note-icon" aria-hidden="true">
-							♡
-						</span>
-
-						<p>
-							Profesjonalne usługi,<br>
-							realne wsparcie społeczne.
-						</p>
-
-					</div>
-
-				</div>
-
-
-				<!-- SERVICES GRID -->
-
-				<div class="services__grid">
-
-
-					<!-- 01. POLIGRAFIA -->
-
-					<article class="service-card service-card--wide service-card--dark">
-
-						<img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1200&q=85"
-							alt="Personalizowane opakowania i torby papierowe" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">01</span>
-
-							<h3>Poligrafia</h3>
-
-							<p>
-								Torby, pudełka, koperty, foldery — robimy to ręcznie,
-								z dbałością o każdy detal. Nasze opakowania są
-								personalizowane, estetyczne i mówią o Twojej marce
-								więcej niż niejeden banner.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Zapytaj o wycenę opakowań dla swojej marki
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zapytaj o poligrafię">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 02. CATERING -->
-
-					<article class="service-card service-card--wide service-card--dark">
-
-						<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=85"
-							alt="Przygotowany catering na wydarzenie" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">02</span>
-
-							<h3>Catering</h3>
-
-							<p>
-								Dobry catering to nie tylko jedzenie — to atmosfera.
-								Przygotowujemy posiłki na szkolenia, konferencje,
-								eventy firmowe i spotkania, które pamiętają uczestnicy.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Napisz do nas — ustalimy menu i szczegóły wydarzenia
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zapytaj o catering">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 03. RESTAURACJA -->
-
-					<article class="service-card service-card--medium service-card--dark">
-
-						<img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85"
-							alt="Przytulne wnętrze restauracji" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">03</span>
-
-							<h3>Restauracja</h3>
-
-							<p>
-								Miejsce, w którym czas zwalnia. Domowa kuchnia,
-								sezonowe menu i obsługa z sercem — zapraszamy
-								na lunch, kawę i wszystko pomiędzy.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Zarezerwuj stolik i przekonaj się sam
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Poznaj naszą restaurację">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 04. PRALNIA -->
-
-					<article class="service-card service-card--medium">
-
-						<img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=1000&q=85"
-							alt="Czyste i świeże pranie" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">04</span>
-
-							<h3>Pralnia</h3>
-
-							<p>
-								Czysto, świeżo, na czas. Obsługujemy hotele,
-								pensjonaty, gabinety medyczne i firmy.
-								Odbieramy, pierzemy, dowozimy.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Zapytaj o współpracę
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zapytaj o pralnię">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 05. NISZCZENIE DOKUMENTÓW -->
-
-					<article class="service-card service-card--medium">
-
-						<img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1000&q=85"
-							alt="Dokumenty papierowe przeznaczone do zniszczenia" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">05</span>
-
-							<h3>Niszczenie dokumentów</h3>
-
-							<p>
-								Poufność to nie opcja — to standard.
-								Profesjonalnie niszczymy dokumenty zgodnie z RODO,
-								wydajemy certyfikat zniszczenia i dbamy
-								o bezpieczeństwo informacji.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Zleć niszczenie dokumentów
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zleć niszczenie dokumentów">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 06. KONFEKCJONOWANIE -->
-
-					<article class="service-card service-card--wide service-card--dark">
-
-						<img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1200&q=85"
-							alt="Pakowanie i przygotowywanie produktów" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">06</span>
-
-							<h3>Konfekcjonowanie</h3>
-
-							<p>
-								Pakowanie, segregowanie, kompletowanie — robimy to
-								dokładnie i sprawnie. Jeśli Twoja firma potrzebuje
-								wsparcia przy pracach pomocniczych lub sezonowych
-								zleceniach, mamy zespół gotowy do działania.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Porozmawiajmy o współpracy
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zapytaj o konfekcjonowanie">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 07. BUDOWNICTWO -->
-
-					<article class="service-card service-card--wide">
-
-						<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85"
-							alt="Prace budowlane i remontowe" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">07</span>
-
-							<h3>Budownictwo</h3>
-
-							<p>
-								Drobne remonty, prace wykończeniowe, konserwacja
-								obiektów — wykonujemy solidnie i bez zbędnego
-								rozciągania w czasie.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Masz zlecenie? Napisz do nas
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zapytaj o budownictwo">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 08. SPRZĄTANIE -->
-
-					<article class="service-card service-card--medium service-card--dark">
-
-						<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85"
-							alt="Profesjonalne sprzątanie pomieszczeń" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">08</span>
-
-							<h3>Sprzątanie</h3>
-
-							<p>
-								Biura, obiekty użyteczności publicznej, przestrzenie
-								po remontach — sprzątamy regularnie i dokładnie,
-								z własnym sprzętem i środkami.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Umów bezpłatną wizję lokalną
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zapytaj o sprzątanie">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 09. OGRODNICTWO -->
-
-					<article class="service-card service-card--medium service-card--dark">
-
-						<img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1000&q=85"
-							alt="Pielęgnacja zieleni i ogrodu" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">09</span>
-
-							<h3>Ogrodnictwo</h3>
-
-							<p>
-								Koszenie, pielęgnacja, nasadzenia, porządki sezonowe —
-								dbamy o przestrzeń wokół Twojego obiektu przez cały rok.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Zaplanujmy opiekę nad zielenią
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zapytaj o ogrodnictwo">
-							↗
-						</a>
-
-					</article>
-
-
-					<!-- 10. KRAWIECTWO -->
-
-					<article class="service-card service-card--medium service-card--dark">
-
-						<img src="https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?auto=format&fit=crop&w=1000&q=85"
-							alt="Prace krawieckie przy maszynie do szycia" class="service-card__image" loading="lazy">
-
-						<div class="service-card__content">
-
-							<span class="service-card__number">10</span>
-
-							<h3>Krawiectwo</h3>
-
-							<p>
-								Poprawki, szycie na miarę, renowacja odzieży —
-								obsługujemy klientów indywidualnych i firmy.
-								Dokładność i terminowość to nasza podstawa.
-							</p>
-
-							<a href="#kontakt" class="service-card__link">
-								Przyjdź z pomysłem
-								<span>↗</span>
-							</a>
-
-						</div>
-
-						<a href="#kontakt" class="service-card__arrow" aria-label="Zapytaj o krawiectwo">
-							↗
-						</a>
-
-					</article>
-
-
-				</div>
-
+				Oferta
 			</div>
-
 		</section>
-
-
-		<!-- =====================================
-         SOCIAL MISSION
-    ====================================== -->
-
-		<section class="mission section" id="o-nas">
-
-			<div class="container">
-
-				<div class="mission__inner">
-
-					<div class="mission__heading">
-
-						<span class="eyebrow">
-							Nasza misja
-						</span>
-
-						<h2>
-							Profesjonalne usługi.<br>
-							Społeczna wartość<span>.</span>
-						</h2>
-
-					</div>
-
-					<div class="mission__content">
-
-						<p>
-							Tworzymy miejsca pracy dla osób z niepełnosprawnościami
-							i wspieramy ich aktywność zawodową.
-						</p>
-
-						<a href="#kontakt" class="button button--light">
-							<span>Skontaktuj się z nami</span>
-
-							<svg viewBox="0 0 24 24" aria-hidden="true">
-								<path d="M5 12h14M12 5l7 7-7 7" />
-							</svg>
-						</a>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</section>
-
-
-		<!-- =====================================
-         CONTACT
-    ====================================== -->
-
-		<section class="contact section" id="kontakt">
-
-			<div class="container contact__container">
-
-				<div class="contact__content">
-
-					<div class="eyebrow">
-						<span class="eyebrow__line"></span>
-						<span>Kontakt</span>
-						<span class="eyebrow__line"></span>
-					</div>
-
-					<h2 class="section-title">
-						Porozmawiajmy<br>
-						o współpracy<span>.</span>
-					</h2>
-
-					<p>
-						Masz pytania dotyczące naszych usług?
-						Skontaktuj się z nami — chętnie porozmawiamy
-						o możliwościach współpracy.
-					</p>
-
-					<button type="button" class="button button--primary" id="openContact" aria-haspopup="dialog">
-						<span>Napisz do nas</span>
-
-						<svg viewBox="0 0 24 24" aria-hidden="true">
-							<path d="M5 12h14M12 5l7 7-7 7" />
-						</svg>
-					</button>
-
-				</div>
-
-				<div class="contact__decoration" aria-hidden="true">
-					<span>NR</span>
-				</div>
-
-			</div>
-
-		</section>
-
+		<section id="about">O nas</section>
+		<section id="contact">Kontakt</section>
 	</main>
-
-
-	<!-- =====================================
-       FOOTER
-  ====================================== -->
-
 	<footer class="footer">
-
-		<div class="container footer__container">
-
-			<a href="#" class="logo logo--footer">
-				<span class="logo__symbol" aria-hidden="true">
-					<span></span>
-					<span></span>
-				</span>
-
-				<span class="logo__text">
-					<span>Stowarzyszenie</span>
-					<strong>NADZIEJA<br>RODZINIE</strong>
-				</span>
-			</a>
-
-			<p class="footer__copyright">
-				© <span id="currentYear"></span>
-				Stowarzyszenie Nadzieja Rodzinie.
-				Wszelkie prawa zastrzeżone.
-			</p>
-
-			<a href="#header" class="footer__top">
-				Do góry ↑
-			</a>
-
+		<div class="container">
+			<p>&copy; 2026</p>
 		</div>
-
 	</footer>
-
-	<!-- =====================================
-       CONTACT DIALOG
-  ====================================== -->
-
-	<dialog class="dialog" id="contactDialog" aria-labelledby="contactTitle">
-		<div class="dialog__box">
-
-			<button type="button" class="dialog__close" id="closeContact" aria-label="Zamknij okno">
-				<svg viewBox="0 0 24 24" aria-hidden="true">
-					<path d="M6 6l12 12M18 6L6 18" />
-				</svg>
-			</button>
-
-			<h2 class="dialog__title" id="contactTitle">Napisz do nas</h2>
-			<p class="dialog__lead">Odpowiemy najszybciej, jak to możliwe.</p>
-
-			<!-- Wstaw adres swojego endpointu (np. Formspree) w data-endpoint -->
-			<form class="form" id="contactForm" novalidate data-endpoint="https://formspree.io/f/YOUR_FORM_ID">
-
-				<div class="form__field">
-					<label for="contactName">Imię</label>
-					<input type="text" id="contactName" name="name" autocomplete="name" required minlength="2">
-					<span class="form__error" data-error-for="name"></span>
-				</div>
-
-				<div class="form__field">
-					<label for="contactEmail">E-mail</label>
-					<input type="email" id="contactEmail" name="email" autocomplete="email" required>
-					<span class="form__error" data-error-for="email"></span>
-				</div>
-
-				<div class="form__field">
-					<label for="contactMessage">Wiadomość</label>
-					<textarea id="contactMessage" name="message" rows="5" required minlength="10"></textarea>
-					<span class="form__error" data-error-for="message"></span>
-				</div>
-
-				<p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-
-				<button type="submit" class="button button--primary form__submit">
-					<span>Wyślij</span>
-					<svg viewBox="0 0 24 24" aria-hidden="true">
-						<path d="M5 12h14M12 5l7 7-7 7" />
-					</svg>
-				</button>
-
-			</form>
-		</div>
-	</dialog>
-
-	<!-- Custom cursor (desktop) -->
-	<div class="cursor" id="cursor" aria-hidden="true"></div>
-
 </body>
 
 </html>
