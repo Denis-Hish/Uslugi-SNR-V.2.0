@@ -8,9 +8,9 @@
   --color-text: #686b63;
   --color-border: #dcdccf;
 
-  --rounded-sm: 8px;
-  --rounded-md: 16px;
-  --rounded-lg: 24px;
+  --rounded-sm: 16px;
+  --rounded-md: 24px;
+  --rounded-lg: 40px;
   --rounded-full: 100px;
 
   --font-primary: 'Amulya-Bold', system-ui, -apple-system, Roboto, sans-serif;
@@ -106,8 +106,8 @@ button {
 }
 
 section {
-  min-height: 100svh;
-  padding-block: 80px;
+  /* min-height: 100svh; */
+  padding-block: clamp(20px, 8vw, 80px);
 }
 
 /* main {
@@ -265,28 +265,23 @@ section {
 }
 
 .card {
-  --rounded: 40px;
-
   position: relative;
   min-height: 500px;
-  border-radius: var(--rounded);
+  border-radius: var(--rounded-lg);
   background-image: url('/img/hero-image.jpg');
   background-size: cover;
   background-position: center;
   background-color: var(--color-bg);
 
-  --border-size: 20px;
-
   .box {
-    /* overflow: hidden; */
     position: absolute;
-    padding: 1rem;
     background-color: var(--color-bg);
 
-    &.title {
+    &.box-title {
+      padding: 0 2rem 2rem 0;
       top: -1px;
       left: -1px;
-      border-radius: var(--rounded) 0 var(--rounded) 0;
+      border-radius: var(--rounded-lg) 0 var(--rounded-lg) 0;
 
       &::before,
       &::after {
@@ -300,22 +295,22 @@ section {
       &::before {
         bottom: -50px;
         left: 1px;
-        border-top-left-radius: var(--rounded);
+        border-top-left-radius: var(--rounded-lg);
       }
 
       &::after {
         top: 0px;
         right: -50px;
-        border-top-left-radius: var(--rounded);
+        border-top-left-radius: var(--rounded-lg);
       }
     }
 
-    &.description {
-      padding: 2rem;
+    &.box-description {
+      padding: 2rem 0 0 2rem;
       bottom: 0;
       right: 0;
       width: 50%;
-      border-radius: var(--rounded) 0 0 0;
+      border-radius: var(--rounded-lg) 0 0 0;
 
       &::before,
       &::after {
@@ -324,7 +319,7 @@ section {
         width: 50px;
         height: 50px;
         box-shadow: 12px 12px var(--color-bg);
-        border-bottom-right-radius: var(--rounded);
+        border-bottom-right-radius: var(--rounded-lg);
       }
 
       &::before {
@@ -345,12 +340,11 @@ section {
       }
     }
 
-    &.actions {
+    &.box-actions {
       left: 20px;
       bottom: 20px;
       width: 30%;
       background-color: transparent;
-      /* background-color: lightgray; */
       display: flex;
       justify-content: center;
       align-items: center;
