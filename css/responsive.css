@@ -4,17 +4,31 @@
 @media (max-width: 768px) {
   .hero {
     .hero-card {
-      padding: 2rem;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       background-image: none;
       gap: 1rem;
 
-      img {
+      .hero-logo {
+        z-index: 1;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+
+        --logo-size: 120px;
+        width: var(--logo-size);
+        height: var(--logo-size);
+      }
+
+      .hero-bg {
         display: block;
         width: 100%;
         height: auto;
+        background-image: url('/img/hero-image.jpg');
+        background-position: center;
+        background-size: cover;
+        min-height: 300px;
         border-radius: var(--rounded-sm);
       }
 
@@ -70,6 +84,7 @@
       .menu-toggle {
         display: inline-flex;
         position: relative;
+        cursor: pointer;
         z-index: 101;
       }
     }

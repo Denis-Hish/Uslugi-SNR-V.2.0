@@ -8,19 +8,9 @@ const menuLabel = document.querySelector('.menu-toggle__label');
 const header = document.querySelector('.header');
 const mobileMenu = window.matchMedia('(max-width: 768px)');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let menuAnimator = null;
 
 if (menuToggle && nav && menuLabel) {
-  let menuTimeline = null;
-
-  const resetMenuTimeline = () => {
-    if (!menuTimeline) return;
-    menuTimeline.kill();
-    menuTimeline = null;
-    gsap.set([nav, ...navLinks], {
-      clearProps: 'opacity,visibility,transform',
-    });
-  };
-
   const openMenu = () => {
     if (!mobileMenu.matches) return;
 
@@ -34,19 +24,8 @@ if (menuToggle && nav && menuLabel) {
     header.classList.remove('is-hidden');
     isHeaderVisible = true;
 
-    if (typeof gsap !== 'undefined' && !reduceMotion.matches) {
-      if (!menuTimeline) {
-        menuTimeline = gsap
-          .timeline({ paused: true })
-          .to(nav, { autoAlpha: 1, duration: 0.4, ease: 'power2.out' })
-          .fromTo(
-            navLinks,
-            { autoAlpha: 0, y: 40 },
-            { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out' },
-            '-=0.15',
-          );
-      }
-      menuTimeline.timeScale(1).play();
+    if (menuAnimator && !reduceMotion.matches) {
+      menuAnimator.open();
     } else {
       nav.style.opacity = '1';
       nav.style.visibility = 'visible';
@@ -65,8 +44,8 @@ if (menuToggle && nav && menuLabel) {
     menuLabel.textContent = 'menu';
     document.body.classList.remove('menu-open');
 
-    if (menuTimeline) {
-      menuTimeline.timeScale(1.6).reverse();
+    if (menuAnimator && !reduceMotion.matches) {
+      menuAnimator.close();
     } else {
       nav.style.removeProperty('opacity');
       nav.style.removeProperty('visibility');
@@ -89,7 +68,7 @@ if (menuToggle && nav && menuLabel) {
 
   const syncMenuMode = () => {
     closeMenu();
-    resetMenuTimeline();
+    if (menuAnimator) menuAnimator.reset();
     nav.style.removeProperty('opacity');
     nav.style.removeProperty('visibility');
     nav.inert = mobileMenu.matches;
