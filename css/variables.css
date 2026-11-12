@@ -1,0 +1,32 @@
+@import 'fonts.css';
+
+:root {
+  --color-primary: #33ac37;
+  --color-primary-dark: hsl(from var(--color-primary) h s calc(l - 10));
+  --color-primary-light: hsl(from var(--color-primary) h s calc(l + 10));
+  --color-accent: #ccd64a;
+  --color-bg: #f5f4ef;
+  --color-title: #242722;
+  --color-text: #686b63;
+  --color-border: #dcdccf;
+  --color-white: #ffffff;
+
+  --rounded-sm: 16px;
+  --rounded-md: 24px;
+  --rounded-lg: 40px;
+  --rounded-full: 100px;
+
+  --font-primary: 'Amulya-Bold', system-ui, -apple-system, Roboto, sans-serif;
+  --font-secondary:
+    'Amulya-Light', system-ui, -apple-system, Roboto, sans-serif;
+  --font-text: 'Synonym', system-ui, -apple-system, Roboto, sans-serif;
+
+  --shadow-soft: 0 12px 40px rgba(36, 39, 34, 0.06);
+
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.4s ease-in-out;
+  --transition-slow: 0.6s ease-in-out;
+
+  --container-width: 1320px;
+  --container-padding: 24px;
+}

@@ -26,58 +26,80 @@
 				<!-- <img src="/img/logo.png" alt="Logo Nadzieja Rodzinie"> -->
 				Usługi SNR
 			</a>
-			<nav class="nav">
-				<a href="#oferta" class="active">Oferta</a>
-				<a href="#about">O nas</a>
-				<a href="#contact">Kontakt</a>
+			<nav class="nav" id="navigation">
+				<a href="#oferta" class="nav-link active">Oferta</a>
+				<a href="#about" class="nav-link">O nas</a>
+				<a href="#contact" class="nav-link">Kontakt</a>
 			</nav>
+			<button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false"
+				aria-controls="navigation">
+				<span class="menu-toggle__label">menu</span>
+				<svg class="menu-toggle__icon" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+					<rect width="2" height="2" rx="1" fill="currentColor" />
+					<rect class="dot-edge" x="5" width="2" height="2" rx="1" fill="currentColor" />
+					<rect x="10" width="2" height="2" rx="1" fill="currentColor" />
+					<rect class="dot-edge" y="5" width="2" height="2" rx="1" fill="currentColor" />
+					<rect x="5" y="5" width="2" height="2" rx="1" fill="currentColor" />
+					<rect class="dot-edge" x="10" y="5" width="2" height="2" rx="1" fill="currentColor" />
+					<rect y="10" width="2" height="2" rx="1" fill="currentColor" />
+					<rect class="dot-edge" x="5" y="10" width="2" height="2" rx="1" fill="currentColor" />
+					<rect x="10" y="10" width="2" height="2" rx="1" fill="currentColor" />
+				</svg>
+			</button>
 		</div>
 	</header>
+
 	<main>
-		<section>
+		<section class="hero">
 			<div class="container">
-				<div class="card">
+				<div class="hero-card">
 					<div class="box box-title">
 						<h3 class="subtitle line">Nasze usługi</h3>
 						<h2 class="title">Witamy w ofercie usługowej<span>.</span></h2>
 					</div>
+					<img src="img/hero-image.jpg" alt="Hero image">
 					<div class="box box-description">
-						<p><a href="#" target="_blank" rel="noopener noreferrer">Stowarzyszenie Nadzieja Rodzinie</a> łączy
+						<p><a href="#" class="link" target="_blank" rel="noopener noreferrer">Stowarzyszenie Nadzieja Rodzinie</a>
+							łączy
 							profesjonalne usługi
 							z misją społeczną. Realizujemy zlecenia rzetelnie i terminowo,
 							tworząc miejsca pracy dla osób z niepełnosprawnościami
 							i wspierając ich aktywność zawodową.</p>
 					</div>
-					<div class="box box-actions"><button type="button">Button</button></div>
+					<div class="box box-actions">
+						<a href="#oferta" class="btn btn-primary">
+							<span>Poznaj nasze usługi</span>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="48px" width="48px"
+								fill="currentColor">
+								<path d="M34.3,25.5H8v-3H34.3L21.9,10.1L24,8L40,24L24,40l-2.1-2.1L34.3,25.5Z" />
+							</svg>
+						</a>
+					</div>
 				</div>
+
+
 			</div>
 		</section>
 
-
-		<section class="hero">
-			<div class="container">
-				<div class="content">
-					<h3 class="subtitle line">Nasze usługi</h3>
-					<h2 class="title">Witamy w ofercie usługowej<span>.</span></h2>
-					<p><a href="#" target="_blank" rel="noopener noreferrer">Stowarzyszenie Nadzieja Rodzinie</a> łączy
-						profesjonalne usługi
-						z misją społeczną. Realizujemy zlecenia rzetelnie i terminowo,
-						tworząc miejsca pracy dla osób z niepełnosprawnościami
-						i wspierając ich aktywność zawodową.</p>
-					<button type="button">Button</button>
-				</div>
-				<div class="image">
-					<img src="img/hero-image.jpg" alt="Hero image">
-				</div>
-			</div>
-		</section>
-		<section id="oferta">
+		<section class="oferta" id="oferta">
 			<div class="container">
 				Oferta
+				<a href="#" class="btn btn-secondary">
+					<span>Button secondary</span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="48px" width="48px" fill="currentColor">
+						<path d="M34.3,25.5H8v-3H34.3L21.9,10.1L24,8L40,24L24,40l-2.1-2.1L34.3,25.5Z" />
+					</svg>
+				</a>
+
+				<a href="#" class="btn btn-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="48px" width="48px" fill="currentColor">
+						<path d="M34.3,25.5H8v-3H34.3L21.9,10.1L24,8L40,24L24,40l-2.1-2.1L34.3,25.5Z" />
+					</svg>
+				</a>
 			</div>
 		</section>
-		<section id="about">O nas</section>
-		<section id="contact">Kontakt</section>
+		<section class="about" id="about">O nas</section>
+		<section class="contact" id="contact">Kontakt</section>
 	</main>
 	<footer class="footer">
 		<div class="container">

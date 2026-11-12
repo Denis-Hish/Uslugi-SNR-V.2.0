@@ -1,66 +1,76 @@
+@import 'variables.css';
+
 /* Tablet */
 @media (max-width: 768px) {
-  .card {
-    padding: 2rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--color-primary);
+  .hero {
+    .hero-card {
+      padding: 2rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background-image: none;
+      gap: 1rem;
 
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgb(from var(--color-primary) r g b / 0.5) 0%,
-        rgb(from var(--color-primary) r g b / 0.1) 100%
-      );
-      z-index: 0;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: var(--rounded-sm);
+      }
+
+      .box {
+        position: relative;
+
+        &.box-title,
+        &.box-description,
+        &.box-actions {
+          top: 0;
+          left: 0;
+          width: auto;
+          padding: 0;
+
+          &::before,
+          &::after {
+            display: none;
+          }
+        }
+
+        &.box-actions {
+          margin-top: 1rem;
+        }
+      }
     }
+  }
 
-    .box {
-      position: relative;
-      background-color: transparent;
-      z-index: 1;
-      color: var(--color-white);
-
-      &.box-title {
+  .header {
+    .container {
+      .nav {
+        position: fixed;
         top: 0;
         left: 0;
-        border-radius: initial;
-        padding: 0;
-
-        .subtitle,
-        .title {
-          color: #fff;
-        }
-      }
-
-      &.box-title,
-      &.box-description {
-        &::before,
-        &::after {
-          display: none;
-        }
-      }
-
-      &.box-description {
-        width: auto;
-        border-radius: initial;
-        padding: 0;
-        p {
-          color: #fff;
-        }
-      }
-
-      &.box-actions {
-        top: 0;
-        left: 0;
-        width: auto;
-        flex: 1;
+        width: 100%;
+        height: 100dvh;
         display: flex;
-        align-items: end;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1rem;
+        justify-content: center;
+        background-color: var(--color-white);
+        z-index: 98;
+        opacity: 0;
+        visibility: hidden;
+        padding-right: 2rem;
+
+        .nav-link {
+          font-size: clamp(34px, 10vw, 48px);
+          font-weight: 700;
+        }
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        position: relative;
+        z-index: 101;
       }
     }
   }
