@@ -4,11 +4,16 @@
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 (function heroAnimation() {
-  gsap.from('.hero .subtitle', {
+  gsap.to('.hero .hero-card', {
+    duration: 1,
+    autoAlpha: 1,
+    scale: 1,
+  });
+
+  gsap.to('.hero .subtitle', {
     duration: 0.5,
-    y: 100,
-    autoAlpha: 0,
-    stagger: 0.05,
+    y: 0,
+    autoAlpha: 1,
   });
 
   SplitText.create('.hero .title', {
@@ -45,24 +50,18 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
     },
   });
 
-  gsap.from('.box-actions', {
+  gsap.to('.box-actions', {
     duration: 0.5,
     delay: 1,
-    scale: 0.98,
-    autoAlpha: 0,
+    scale: 1,
+    autoAlpha: 1,
   });
 
-  gsap.from('.hero .hero-logo', {
+  gsap.to('.hero .hero-logo', {
     duration: 0.5,
     delay: 1.2,
-    scale: 0.98,
-    autoAlpha: 0,
-  });
-
-  gsap.from('.hero .hero-card', {
-    duration: 1,
-    autoAlpha: 0,
-    scale: 0.98,
+    scale: 1,
+    autoAlpha: 1,
   });
 })();
 

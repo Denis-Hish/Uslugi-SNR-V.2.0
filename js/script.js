@@ -120,7 +120,7 @@ const navSections = [...navLinks]
   .filter(item => item.section);
 
 if (navSections.length) {
-  let activeLink = null;
+  let activeLink;
 
   const updateActiveLink = () => {
     const line = window.innerHeight * 0.4;
@@ -128,8 +128,7 @@ if (navSections.length) {
       window.innerHeight + window.scrollY >=
       document.documentElement.scrollHeight - 4;
 
-    // Default to the first link (hero sits above the first section)
-    let current = navSections[0];
+    let current = null;
 
     navSections.forEach(item => {
       if (item.section.getBoundingClientRect().top <= line) current = item;
@@ -137,9 +136,10 @@ if (navSections.length) {
 
     if (atBottom) current = navSections[navSections.length - 1];
 
-    if (current.link === activeLink) return;
+    const nextLink = current?.link ?? null;
+    if (nextLink === activeLink) return;
 
-    activeLink = current.link;
+    activeLink = nextLink;
     navLinks.forEach(link =>
       link.classList.toggle('active', link === activeLink),
     );

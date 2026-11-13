@@ -1,5 +1,34 @@
 @import 'variables.css';
 
+/* Services cards */
+@media (max-width: 1024px) {
+  .services {
+    .title-box {
+      flex-direction: column;
+      align-items: stretch;
+
+      .description-container {
+        width: auto;
+        max-width: none;
+        border-left: none;
+        padding: 0;
+      }
+    }
+
+    .cards {
+      .card {
+        &.card-large {
+          grid-column: span 6;
+        }
+
+        &.card-medium {
+          grid-column: span 6;
+        }
+      }
+    }
+  }
+}
+
 /* Tablet */
 @media (max-width: 768px) {
   .header {
@@ -76,6 +105,7 @@
           left: 0;
           width: auto;
           padding: 0;
+          border-radius: 0;
 
           &::before,
           &::after {
@@ -95,22 +125,41 @@
       }
     }
   }
-
-  .oferta {
-    .title-box {
-      flex-direction: column;
-      align-items: stretch;
-
-      .description-container {
-        width: auto;
-        max-width: none;
-        border-left: none;
-        padding: 0;
-      }
-    }
-  }
 }
 
 /* Mobile */
 @media (max-width: 576px) {
+  .services {
+    .cards {
+      .card {
+        &.card-large {
+          grid-column: span 12;
+        }
+
+        &.card-medium {
+          grid-column: span 12;
+        }
+
+        .card-image {
+        }
+
+        .card-content {
+          .card-number {
+          }
+          .card-title {
+          }
+          .card-description {
+          }
+          .card-action {
+            .card-link {
+              .btn {
+              }
+              .btn-icon {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
