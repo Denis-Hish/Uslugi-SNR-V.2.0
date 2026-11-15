@@ -104,3 +104,61 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
     },
   };
 })();
+
+gsap.utils.toArray('.animation-title').forEach(block => {
+  SplitText.create(block.querySelector('.title'), {
+    type: 'lines, words',
+    mask: 'lines',
+    autoSplit: true,
+
+    onSplit(self) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: block,
+          start: 'top 90%',
+          toggleActions: 'play none none reverse',
+          // markers: true,
+        },
+      });
+
+      // TODO: Заменить `fromTo` на `to`, в css добавить свойства для начального состояния (opacity, visibility, transform)
+      tl.fromTo(
+        block.querySelector('.subtitle'),
+        { autoAlpha: 0, y: 100 },
+        { duration: 0.5, autoAlpha: 1, y: 0 },
+      )
+        .fromTo(
+          self.words,
+          { autoAlpha: 0, y: 100 },
+          {
+            duration: 0.5,
+            autoAlpha: 1,
+            y: 0,
+            stagger: 0.05,
+          },
+          '-=0.25',
+        )
+        .fromTo(
+          block.querySelector('.description-container'),
+          { autoAlpha: 0, x: 100 },
+          { duration: 0.5, autoAlpha: 1, x: 0 },
+          '-=0.25',
+        );
+
+      return tl;
+    },
+  });
+});
+
+gsap.utils.toArray('.animation-card').forEach(block => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: block,
+      start: 'top 90%',
+      toggleActions: 'play none none reverse',
+      markers: true,
+    },
+  });
+
+  tl.from(block, { duration: 0.5, autoAlpha: 0, y: 50 });
+});

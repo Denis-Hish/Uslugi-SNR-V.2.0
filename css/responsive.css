@@ -15,14 +15,14 @@
   /* Services cards */
   .services {
     .cards {
-      .card {
-        &.card-large {
-          grid-column: span 6;
-        }
+      .card-large {
+        grid-column: span 6;
+      }
 
-        &.card-medium {
-          grid-column: span 6;
-        }
+      .card-medium {
+        grid-column: span 6;
+      }
+      .card {
       }
     }
   }
@@ -151,15 +151,15 @@
 @media (max-width: 576px) {
   .services {
     .cards {
+      .card-large {
+        grid-column: span 12;
+      }
+
+      .card-medium {
+        grid-column: span 12;
+      }
+
       .card {
-        &.card-large {
-          grid-column: span 12;
-        }
-
-        &.card-medium {
-          grid-column: span 12;
-        }
-
         .card-image {
         }
 

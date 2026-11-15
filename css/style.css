@@ -402,6 +402,7 @@ button {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+  overflow: hidden;
 
   .description-container {
     max-width: 360px;
@@ -712,6 +713,14 @@ button {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 1.5rem;
 
+    .card-large {
+      grid-column: span 6;
+    }
+
+    .card-medium {
+      grid-column: span 4;
+    }
+
     .card {
       display: flex;
       min-height: 400px;
@@ -728,14 +737,6 @@ button {
       a {
         color: inherit;
         display: flex;
-      }
-
-      &.card-large {
-        grid-column: span 6;
-      }
-
-      &.card-medium {
-        grid-column: span 4;
       }
 
       .card-image {
