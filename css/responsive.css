@@ -1,20 +1,19 @@
 @import 'variables.css';
 
-/* Services cards */
 @media (max-width: 1024px) {
-  .services {
-    .title-box {
-      flex-direction: column;
-      align-items: stretch;
+  .title-box {
+    flex-direction: column;
+    align-items: stretch;
 
-      .description-container {
-        width: auto;
-        max-width: none;
-        border-left: none;
-        padding: 0;
-      }
+    .description-container {
+      width: auto;
+      max-width: none;
+      border-left: none;
+      padding: 0;
     }
-
+  }
+  /* Services cards */
+  .services {
     .cards {
       .card {
         &.card-large {
@@ -88,7 +87,7 @@
         display: block;
         width: 100%;
         height: auto;
-        background-image: url('/img/hero-image.jpg');
+        background-image: url('../img/hero-image.jpg');
         background-position: center;
         background-size: cover;
         min-height: 300px;
@@ -121,6 +120,27 @@
           .title {
             width: auto;
           }
+        }
+      }
+    }
+  }
+
+  .about {
+    .mission {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem;
+
+      .mission-title {
+      }
+
+      .mission-description {
+        padding: 2rem 0 2rem 0;
+        border-left: none;
+        border-top: 1px solid var(--color-border);
+
+        .btn {
+          margin-top: 1rem;
         }
       }
     }

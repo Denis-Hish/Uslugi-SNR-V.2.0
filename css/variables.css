@@ -21,8 +21,11 @@
   --font-secondary:
     'Amulya-Light', system-ui, -apple-system, Roboto, sans-serif;
   --font-text: 'Synonym', system-ui, -apple-system, Roboto, sans-serif;
+  --font-charm: 'Charm', system-ui, -apple-system, Roboto, sans-serif;
 
-  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 1px 10px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.2);
 
   --transition-fast: 0.2s ease-in-out;
   --transition-medium: 0.4s ease-in-out;
