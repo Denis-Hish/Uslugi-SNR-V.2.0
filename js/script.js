@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       window.scrollTo({
         top: 0,
-        behavior: 'smooth',
+        behavior: reduceMotion.matches ? 'instant' : 'smooth',
       });
       button.blur();
     });

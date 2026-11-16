@@ -2,19 +2,20 @@
 
 //* GSAP *//
 gsap.registerPlugin(ScrollTrigger, SplitText);
+const animationMedia = gsap.matchMedia();
 
 // Hero section
-(function heroAnimation() {
-  gsap.to('.hero .hero-card', {
+animationMedia.add('(prefers-reduced-motion: no-preference)', () => {
+  gsap.from('.hero .hero-card', {
     duration: 1,
-    autoAlpha: 1,
-    scale: 1,
+    autoAlpha: 0,
+    scale: 0.98,
   });
 
-  gsap.to('.hero .subtitle', {
+  gsap.from('.hero .subtitle', {
     duration: 0.5,
-    y: 0,
-    autoAlpha: 1,
+    y: 100,
+    autoAlpha: 0,
   });
 
   SplitText.create('.hero .title', {
@@ -51,20 +52,20 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
     },
   });
 
-  gsap.to('.box-actions', {
+  gsap.from('.box-actions', {
     duration: 0.5,
     delay: 1,
-    scale: 1,
-    autoAlpha: 1,
+    scale: 0.98,
+    autoAlpha: 0,
   });
 
-  gsap.to('.hero .hero-logo', {
+  gsap.from('.hero .hero-logo', {
     duration: 0.5,
     delay: 1.2,
-    scale: 1,
-    autoAlpha: 1,
+    scale: 0.98,
+    autoAlpha: 0,
   });
-})();
+});
 
 // Menu
 (function menuAnimation() {
@@ -107,101 +108,112 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
   };
 })();
 
-// Title
-gsap.utils.toArray('.animation-title').forEach(block => {
-  SplitText.create(block.querySelector('.title'), {
-    type: 'lines, words',
-    mask: 'lines',
-    autoSplit: true,
+animationMedia.add('(prefers-reduced-motion: no-preference)', () => {
+  // Title
+  gsap.utils.toArray('.animation-title').forEach(block => {
+    let played = false;
 
-    onSplit(self) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: block,
-          start: 'top 90%',
-          toggleActions: 'play none none reverse',
-          // markers: true,
-        },
-      });
+    SplitText.create(block.querySelector('.title'), {
+      type: 'lines, words',
+      mask: 'lines',
+      autoSplit: true,
 
-      tl.fromTo(
-        block.querySelector('.subtitle'),
-        { autoAlpha: 0, y: 100 },
-        { duration: 0.5, autoAlpha: 1, y: 0 },
-      )
-        .fromTo(
-          self.words,
-          { autoAlpha: 0, y: 100 },
-          {
-            duration: 0.5,
-            autoAlpha: 1,
-            y: 0,
-            stagger: 0.05,
+      onSplit(self) {
+        if (played) return;
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            played = true;
           },
-          '-=0.25',
+          scrollTrigger: {
+            trigger: block,
+            start: 'top 90%',
+            toggleActions: 'play none none reverse',
+            // once: true,
+          },
+        });
+
+        tl.fromTo(
+          block.querySelector('.subtitle'),
+          { autoAlpha: 0, y: 40 },
+          { duration: 0.5, autoAlpha: 1, y: 0 },
         )
-        .fromTo(
-          block.querySelector('.description-container'),
-          { autoAlpha: 0, x: 100 },
-          { duration: 0.5, autoAlpha: 1, x: 0 },
-          '-=0.25',
-        );
+          .fromTo(
+            self.words,
+            { autoAlpha: 0, y: 40 },
+            {
+              duration: 0.5,
+              autoAlpha: 1,
+              y: 0,
+              stagger: 0.05,
+            },
+            '-=0.25',
+          )
+          .fromTo(
+            block.querySelector('.description-container'),
+            { autoAlpha: 0, x: 40 },
+            { duration: 0.5, autoAlpha: 1, x: 0 },
+            '-=0.25',
+          );
 
-      return tl;
-    },
+        return tl;
+      },
+    });
   });
-});
 
-gsap.utils.toArray('.animation-card').forEach(block => {
-  const tl = gsap.timeline({
+  gsap.utils.toArray('.animation-card').forEach(block => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: block,
+        start: 'top 90%',
+        toggleActions: 'play none none reverse',
+        // once: true,
+      },
+    });
+
+    tl.from(block, { duration: 0.5, autoAlpha: 0, y: 50 });
+  });
+
+  // About
+  const aboutTl = gsap.timeline({
     scrollTrigger: {
-      trigger: block,
-      start: 'top 90%',
+      trigger: '.about .mission',
+      start: 'top 80%',
       toggleActions: 'play none none reverse',
+      // once: true,
       // markers: true,
     },
   });
 
-  tl.from(block, { duration: 0.5, autoAlpha: 0, y: 50 });
-});
-
-// About
-const aboutTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.about .mission',
-    start: 'top 80%',
-    toggleActions: 'play none none reverse',
-  },
-});
-
-aboutTl.from('.about .mission .mission-title', {
-  duration: 0.5,
-  autoAlpha: 0,
-  x: -100,
-});
-
-aboutTl.from(
-  '.about .mission .mission-description',
-  {
+  aboutTl.from('.about .mission .mission-title', {
     duration: 0.5,
     autoAlpha: 0,
-    x: 100,
-  },
-  0,
-);
+    x: -40,
+  });
 
-// Contacts
-const contactsTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.contact .contacts',
-    start: 'top 90%',
-    toggleActions: 'play none none reverse',
-    // markers: true,
-  },
-});
+  aboutTl.from(
+    '.about .mission .mission-description',
+    {
+      duration: 0.5,
+      autoAlpha: 0,
+      x: 40,
+    },
+    0,
+  );
 
-contactsTimeline.from('.contact .contacts', {
-  duration: 0.5,
-  autoAlpha: 0,
-  y: 100,
+  // Contacts
+  const contactsTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.contact .contacts',
+      start: 'top 90%',
+      toggleActions: 'play none none reverse',
+      // once: true,
+    },
+  });
+
+  contactsTimeline.from('.contact .contacts', {
+    duration: 0.5,
+    autoAlpha: 0,
+    y: 50,
+  });
 });

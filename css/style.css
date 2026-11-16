@@ -13,6 +13,20 @@ html {
   scrollbar-gutter: stable;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
   font-family: var(--font-text);
   color: var(--color-text);
@@ -545,9 +559,6 @@ button {
     background-size: cover;
     background-position: center;
     background-color: var(--color-bg);
-    transform: scale(0.98);
-    visibility: hidden;
-    opacity: 0;
 
     .img-box {
       position: relative;
@@ -573,9 +584,6 @@ button {
         inset 0 -1px 0 rgba(255, 255, 255, 0.1),
         inset 0 0 0px 0px rgba(255, 255, 255, 0);
       overflow: hidden;
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(0.98);
 
       &::before {
         content: '';
@@ -643,12 +651,6 @@ button {
           border-top-left-radius: var(--rounded-lg);
         }
 
-        .subtitle {
-          transform: translateY(100px);
-          visibility: hidden;
-          opacity: 0;
-        }
-
         .title {
           width: min(34vw, 480px);
         }
@@ -697,9 +699,6 @@ button {
         display: flex;
         justify-content: center;
         align-items: center;
-        transform: scale(0.98);
-        opacity: 0;
-        visibility: hidden;
       }
     }
   }
@@ -712,6 +711,7 @@ button {
     display: flex;
     align-items: center;
     padding: 4rem;
+    overflow-x: clip;
     box-shadow: var(--shadow-lg);
     background:
       linear-gradient(
@@ -784,6 +784,7 @@ button {
         object-fit: cover;
         object-position: center;
         z-index: -1;
+        transition: transform var(--transition-medium);
       }
 
       .card-content {
@@ -861,8 +862,8 @@ button {
         inset: 0;
         background: linear-gradient(
           180deg,
-          rgba(0, 0, 0, 0.3) 0%,
-          rgba(0, 0, 0, 0.7) 100%
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0.75) 100%
         );
         opacity: 1;
         transition: opacity var(--transition-fast);
@@ -872,13 +873,18 @@ button {
         transform: translateY(-2px);
         box-shadow: var(--shadow-md);
 
-        &::before {
-          opacity: 0.4;
-        }
+        /* .card-image {
+          transform: scale(1.03);
+        } */
+
         .card-link {
           .link-icon {
             transform: rotate(0deg);
           }
+        }
+
+        &::before {
+          opacity: 0.9;
         }
       }
 
