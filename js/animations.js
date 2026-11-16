@@ -156,7 +156,7 @@ gsap.utils.toArray('.animation-card').forEach(block => {
       trigger: block,
       start: 'top 90%',
       toggleActions: 'play none none reverse',
-      markers: true,
+      // markers: true,
     },
   });
 

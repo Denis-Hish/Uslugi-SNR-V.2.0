@@ -113,9 +113,10 @@ window.addEventListener('scroll', handleHeaderVisibility, { passive: true });
 
 //* ACTIVE NAV LINK ON SCROLL *//
 const navSections = [...navLinks]
+  .filter(link => link.getAttribute('href')?.startsWith('#'))
   .map(link => ({
     link,
-    section: document.querySelector(link.getAttribute('href')),
+    section: document.getElementById(link.getAttribute('href').slice(1)),
   }))
   .filter(item => item.section);
 
@@ -150,3 +151,18 @@ if (navSections.length) {
   window.addEventListener('load', updateActiveLink);
   updateActiveLink();
 }
+
+//* SCROLL TO TOP *//
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.querySelector('#scroll-to-top');
+  if (button) {
+    button.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      button.blur();
+    });
+  }
+});

@@ -22,8 +22,6 @@
       .card-medium {
         grid-column: span 6;
       }
-      .card {
-      }
     }
   }
 }
@@ -131,9 +129,6 @@
       align-items: flex-start;
       padding: 2rem;
 
-      .mission-title {
-      }
-
       .mission-description {
         padding: 2rem 0 2rem 0;
         border-left: none;
@@ -141,6 +136,57 @@
 
         .btn {
           margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  .contact {
+    .contacts {
+      flex-direction: column-reverse;
+
+      .contact-address {
+        padding: 4rem 2rem;
+        margin-right: initial;
+        align-items: center;
+
+        .contact-container {
+          &::after {
+            background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.4) 0%,
+              rgba(0, 0, 0, 0.8) 100%
+            );
+          }
+        }
+      }
+
+      .contact-logo {
+        padding: 4rem 2rem;
+        justify-content: center;
+        margin-left: initial;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .footer {
+    .container {
+      flex-direction: column-reverse;
+      padding-block: 1.5rem;
+
+      .copyright {
+        flex-direction: column;
+        align-items: center;
+
+        span:nth-of-type(1) {
+          border-right: none;
+        }
+        span:nth-of-type(2) {
+          border-left: none;
         }
       }
     }
@@ -157,28 +203,6 @@
 
       .card-medium {
         grid-column: span 12;
-      }
-
-      .card {
-        .card-image {
-        }
-
-        .card-content {
-          .card-number {
-          }
-          .card-title {
-          }
-          .card-description {
-          }
-          .card-action {
-            .card-link {
-              .btn {
-              }
-              .btn-icon {
-              }
-            }
-          }
-        }
       }
     }
   }
