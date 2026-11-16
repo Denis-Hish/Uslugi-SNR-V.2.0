@@ -24,7 +24,7 @@ body.menu-open {
 }
 
 section {
-  padding-block: 100px;
+  padding-block: 120px;
 }
 
 section {
@@ -761,6 +761,7 @@ button {
     .card {
       display: flex;
       min-height: 400px;
+      height: 100%;
       border-radius: var(--rounded-md);
       color: var(--color-white);
       box-shadow: var(--shadow-sm);

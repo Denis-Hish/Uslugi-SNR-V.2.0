@@ -3,6 +3,7 @@
 //* GSAP *//
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+// Hero section
 (function heroAnimation() {
   gsap.to('.hero .hero-card', {
     duration: 1,
@@ -65,6 +66,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
   });
 })();
 
+// Menu
 (function menuAnimation() {
   if (!menuToggle || !nav || !menuLabel) return;
 
@@ -105,6 +107,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
   };
 })();
 
+// Title
 gsap.utils.toArray('.animation-title').forEach(block => {
   SplitText.create(block.querySelector('.title'), {
     type: 'lines, words',
@@ -121,7 +124,6 @@ gsap.utils.toArray('.animation-title').forEach(block => {
         },
       });
 
-      // TODO: Заменить `fromTo` на `to`, в css добавить свойства для начального состояния (opacity, visibility, transform)
       tl.fromTo(
         block.querySelector('.subtitle'),
         { autoAlpha: 0, y: 100 },
@@ -161,4 +163,45 @@ gsap.utils.toArray('.animation-card').forEach(block => {
   });
 
   tl.from(block, { duration: 0.5, autoAlpha: 0, y: 50 });
+});
+
+// About
+const aboutTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.about .mission',
+    start: 'top 80%',
+    toggleActions: 'play none none reverse',
+  },
+});
+
+aboutTl.from('.about .mission .mission-title', {
+  duration: 0.5,
+  autoAlpha: 0,
+  x: -100,
+});
+
+aboutTl.from(
+  '.about .mission .mission-description',
+  {
+    duration: 0.5,
+    autoAlpha: 0,
+    x: 100,
+  },
+  0,
+);
+
+// Contacts
+const contactsTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.contact .contacts',
+    start: 'top 90%',
+    toggleActions: 'play none none reverse',
+    // markers: true,
+  },
+});
+
+contactsTimeline.from('.contact .contacts', {
+  duration: 0.5,
+  autoAlpha: 0,
+  y: 100,
 });
