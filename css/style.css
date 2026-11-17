@@ -967,7 +967,7 @@ button {
 
           span {
             display: inline-block;
-            width: 64px;
+            min-width: 64px;
           }
 
           a {
