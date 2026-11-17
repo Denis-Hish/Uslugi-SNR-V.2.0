@@ -6,16 +6,16 @@ const animationMedia = gsap.matchMedia();
 
 // Hero section
 animationMedia.add('(prefers-reduced-motion: no-preference)', () => {
-  gsap.from('.hero .hero-card', {
+  gsap.to('.hero .hero-card', {
     duration: 1,
-    autoAlpha: 0,
-    scale: 0.98,
+    autoAlpha: 1,
+    scale: 1,
   });
 
-  gsap.from('.hero .subtitle', {
+  gsap.to('.hero .subtitle', {
     duration: 0.5,
-    y: 100,
-    autoAlpha: 0,
+    y: 0,
+    autoAlpha: 1,
   });
 
   SplitText.create('.hero .title', {
@@ -52,18 +52,18 @@ animationMedia.add('(prefers-reduced-motion: no-preference)', () => {
     },
   });
 
-  gsap.from('.box-actions', {
+  gsap.to('.box-actions', {
     duration: 0.5,
     delay: 1,
-    scale: 0.98,
-    autoAlpha: 0,
+    scale: 1,
+    autoAlpha: 1,
   });
 
-  gsap.from('.hero .hero-logo', {
+  gsap.to('.hero .hero-logo', {
     duration: 0.5,
     delay: 1.2,
-    scale: 0.98,
-    autoAlpha: 0,
+    scale: 1,
+    autoAlpha: 1,
   });
 });
 
@@ -161,6 +161,7 @@ animationMedia.add('(prefers-reduced-motion: no-preference)', () => {
     });
   });
 
+  // Services cards
   gsap.utils.toArray('.animation-card').forEach(block => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -171,7 +172,7 @@ animationMedia.add('(prefers-reduced-motion: no-preference)', () => {
       },
     });
 
-    tl.from(block, { duration: 0.5, autoAlpha: 0, y: 50 });
+    tl.to(block, { duration: 0.5, autoAlpha: 1, y: 0 });
   });
 
   // About
@@ -185,18 +186,18 @@ animationMedia.add('(prefers-reduced-motion: no-preference)', () => {
     },
   });
 
-  aboutTl.from('.about .mission .mission-title', {
+  aboutTl.to('.about .mission .mission-title', {
     duration: 0.5,
-    autoAlpha: 0,
-    x: -40,
+    autoAlpha: 1,
+    x: 0,
   });
 
-  aboutTl.from(
+  aboutTl.to(
     '.about .mission .mission-description',
     {
       duration: 0.5,
-      autoAlpha: 0,
-      x: 40,
+      autoAlpha: 1,
+      x: 0,
     },
     0,
   );
@@ -208,12 +209,13 @@ animationMedia.add('(prefers-reduced-motion: no-preference)', () => {
       start: 'top 90%',
       toggleActions: 'play none none reverse',
       // once: true,
+      // markers: true,
     },
   });
 
-  contactsTimeline.from('.contact .contacts', {
+  contactsTimeline.to('.contact .contacts', {
     duration: 0.5,
-    autoAlpha: 0,
-    y: 50,
+    autoAlpha: 1,
+    y: 0,
   });
 });

@@ -412,6 +412,53 @@ button {
   }
 }
 
+.glass-card {
+  width: 240px;
+  height: 360px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0px 0px rgba(255, 255, 255, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
 .title-box {
   display: flex;
   gap: 1rem;
@@ -559,6 +606,9 @@ button {
     background-size: cover;
     background-position: center;
     background-color: var(--color-bg);
+    transform: scale(0.98);
+    opacity: 0;
+    visibility: hidden;
 
     .img-box {
       position: relative;
@@ -573,47 +623,11 @@ button {
       padding: 20px;
       width: var(--logo-size);
       height: var(--logo-size);
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 0 0px 0px rgba(255, 255, 255, 0);
-      overflow: hidden;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.8),
-          transparent
-        );
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 1px;
-        height: 100%;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.8),
-          transparent,
-          rgba(255, 255, 255, 0.3)
-        );
-      }
+      transform: scale(0.98);
+      opacity: 0;
+      visibility: hidden;
+      border-radius: var(--rounded-full);
+      padding: 2rem;
     }
 
     .hero-bg {
@@ -649,6 +663,12 @@ button {
           top: 0px;
           right: -50px;
           border-top-left-radius: var(--rounded-lg);
+        }
+
+        .subtitle {
+          transform: translateY(100px);
+          opacity: 0;
+          visibility: hidden;
         }
 
         .title {
@@ -699,6 +719,9 @@ button {
         display: flex;
         justify-content: center;
         align-items: center;
+        transform: scale(0.98);
+        opacity: 0;
+        visibility: hidden;
       }
     }
   }
@@ -725,6 +748,9 @@ button {
 
     .mission-title {
       padding: 2rem 2rem 2rem 0;
+      transform: translateX(-100px);
+      opacity: 0;
+      visibility: hidden;
 
       .subtitle {
         color: var(--color-white);
@@ -740,6 +766,9 @@ button {
       border-left: 1px solid var(--color-border);
       color: var(--color-white);
       font-size: 18px;
+      transform: translateX(100px);
+      opacity: 0;
+      visibility: hidden;
     }
   }
 }
@@ -756,6 +785,12 @@ button {
 
     .card-medium {
       grid-column: span 4;
+    }
+
+    .animation-card {
+      transform: translateY(50px);
+      opacity: 0;
+      visibility: hidden;
     }
 
     .card {
@@ -905,15 +940,18 @@ button {
     border-radius: var(--rounded-lg);
     box-shadow: var(--shadow-lg);
     overflow: hidden;
+    transform: translateY(50px);
+    opacity: 0;
+    visibility: hidden;
 
     .contact-address {
       flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       margin-right: -6%;
-      padding: 2rem 2rem 2rem 4rem;
+      padding-right: 6%;
       position: relative;
 
       .contact-container {
@@ -968,16 +1006,11 @@ button {
     .contact-logo {
       flex: 1;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
-      padding: 2rem 4rem 2rem 2rem;
       margin-left: -6%;
+      padding-left: 6%;
       position: relative;
-
-      .logo {
-        position: relative;
-        max-width: 60%;
-      }
 
       &::before {
         content: '';
@@ -985,6 +1018,11 @@ button {
         inset: 0;
         clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
         background-color: var(--color-bg);
+      }
+
+      .logo {
+        position: relative;
+        max-width: 60%;
       }
     }
   }

@@ -15,7 +15,7 @@
   --rounded-sm: 16px;
   --rounded-md: 24px;
   --rounded-lg: 40px;
-  --rounded-full: 100px;
+  --rounded-full: 9999px;
 
   --font-primary: 'Amulya-Bold', system-ui, -apple-system, Roboto, sans-serif;
   --font-secondary:
