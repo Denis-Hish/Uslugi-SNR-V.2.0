@@ -149,14 +149,10 @@ button {
 }
 
 .link {
-  color: var(--color-primary);
   font-weight: 500;
+  color: var(--color-primary);
   transition: color var(--transition-fast);
   position: relative;
-
-  &:hover {
-    color: var(--color-primary-light);
-  }
 
   &::after {
     content: '';
@@ -166,18 +162,32 @@ button {
     transform: translateX(-50%);
     width: 0;
     height: 1px;
-    background-color: var(--color-primary);
-    transition: width var(--transition-fast);
+    background-color: transparent;
+    transition:
+      width var(--transition-fast),
+      background-color var(--transition-fast);
   }
 
-  &:hover,
-  &.active {
-    color: var(--color-primary);
+  /* Only PC */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--color-primary-light);
+      &::after {
+        background-color: var(--color-primary-light);
+        width: 100%;
+      }
+    }
   }
 
-  &:hover::after,
-  &.active::after {
-    width: 100%;
+  /* Touch device */
+  @media (hover: none) and (pointer: coarse) {
+    &:active {
+      color: var(--color-primary-light);
+      &::after {
+        background-color: var(--color-primary-light);
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -200,25 +210,22 @@ button {
     border-color var(--transition-fast),
     transform var(--transition-fast),
     box-shadow var(--transition-fast);
-
   svg {
     --icon-size: 20px;
     width: var(--icon-size);
     height: var(--icon-size);
   }
 
-  &.btn-primary {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
+  &.btn-primary,
+  &.btn-secondary,
+  &.btn-outline {
     box-shadow: var(--shadow-sm);
-    transition: background-color var(--transition-fast) border-color
-      var(--transition-fast);
-
-    svg {
-      transition: transform var(--transition-fast);
-    }
-
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      transform var(--transition-fast);
     &::after {
       content: '';
       position: absolute;
@@ -227,32 +234,65 @@ button {
       z-index: -1;
       width: 40%;
       height: 100%;
+      transform: skewX(-20deg);
+      transition: left var(--transition-medium);
+    }
+    svg {
+      transition: transform var(--transition-fast);
+    }
+    &:active {
+      transform: translateY(1px);
+      box-shadow: none;
+    }
+    /* Only PC */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        &::after {
+          left: 130%;
+        }
+        svg {
+          transform: translateX(2px);
+        }
+      }
+    }
+    /* Touch device */
+    @media (hover: none) and (pointer: coarse) {
+      &:active {
+        &::after {
+          left: 130%;
+        }
+        svg {
+          transform: translateX(2px);
+        }
+      }
+    }
+  }
+
+  &.btn-primary {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    &::after {
       background: linear-gradient(
         100deg,
         transparent,
         rgb(from var(--color-white) r g b / 0.35),
         transparent
       );
-      transform: skewX(-20deg);
-      transition: left var(--transition-medium);
     }
-
-    &:hover {
-      background-color: var(--color-primary-light);
-      border-color: var(--color-primary-light);
-
-      &::after {
-        left: 130%;
-      }
-
-      svg {
-        transform: translateX(2px);
+    /* Only PC */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--color-primary-light);
+        border-color: var(--color-primary-light);
       }
     }
-
-    &:active {
-      transform: translateY(1px);
-      box-shadow: none;
+    /* Touch device */
+    @media (hover: none) and (pointer: coarse) {
+      &:active {
+        background-color: var(--color-primary-light);
+        border-color: var(--color-primary-light);
+      }
     }
   }
 
@@ -260,51 +300,29 @@ button {
     color: var(--color-title);
     background-color: var(--color-white);
     border-color: var(--color-white);
-    box-shadow: var(--shadow-sm);
-    transition:
-      color var(--transition-fast),
-      background-color var(--transition-fast),
-      border-color var(--transition-fast);
-
-    svg {
-      transition: transform var(--transition-fast);
-    }
-
     &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -60%;
-      z-index: -1;
-      width: 40%;
-      height: 100%;
       background: linear-gradient(
         100deg,
         transparent,
         rgb(from var(--color-primary-light) r g b / 0.35),
         transparent
       );
-      transform: skewX(-20deg);
-      transition: left var(--transition-medium);
     }
-
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-title);
-      border-color: var(--color-title);
-
-      &::after {
-        left: 130%;
-      }
-
-      svg {
-        transform: translateX(2px);
+    /* Only PC */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--color-white);
+        background-color: var(--color-title);
+        border-color: var(--color-title);
       }
     }
-
-    &:active {
-      transform: translateY(1px);
-      box-shadow: none;
+    /* Touch device */
+    @media (hover: none) and (pointer: coarse) {
+      &:active {
+        color: var(--color-white);
+        background-color: var(--color-title);
+        border-color: var(--color-title);
+      }
     }
   }
 
@@ -312,51 +330,29 @@ button {
     color: var(--color-title);
     background-color: var(--color-white);
     border-color: var(--color-primary);
-    box-shadow: var(--shadow-sm);
-    transition:
-      color var(--transition-fast),
-      background-color var(--transition-fast),
-      border-color var(--transition-fast);
-
-    svg {
-      transition: transform var(--transition-fast);
-    }
-
     &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -60%;
-      z-index: -1;
-      width: 40%;
-      height: 100%;
       background: linear-gradient(
         100deg,
         transparent,
         rgb(from var(--color-text) r g b / 0.35),
         transparent
       );
-      transform: skewX(-20deg);
-      transition: left var(--transition-medium);
     }
-
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-primary-light);
-      border-color: var(--color-primary-light);
-
-      &::after {
-        left: 130%;
-      }
-
-      svg {
-        transform: translateX(2px);
+    /* Only PC */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--color-white);
+        background-color: var(--color-primary-light);
+        border-color: var(--color-primary-light);
       }
     }
-
-    &:active {
-      transform: translateY(1px);
-      box-shadow: none;
+    /* Touch device */
+    @media (hover: none) and (pointer: coarse) {
+      &:active {
+        color: var(--color-white);
+        background-color: var(--color-primary-light);
+        border-color: var(--color-primary-light);
+      }
     }
   }
 
@@ -372,12 +368,10 @@ button {
       border-color var(--transition-fast),
       transform var(--transition-fast),
       box-shadow var(--transition-fast);
-
     svg {
       transform: rotate(-45deg);
       transition: transform var(--transition-fast);
     }
-
     &::after {
       content: '';
       position: absolute;
@@ -395,18 +389,32 @@ button {
       transform: skewX(-20deg);
       transition: left var(--transition-medium);
     }
-
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-primary-light);
-      border-color: var(--color-primary-light);
-
-      &::after {
-        left: 130%;
+    /* Only PC */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--color-white);
+        background-color: var(--color-primary-light);
+        border-color: var(--color-primary-light);
+        &::after {
+          left: 130%;
+        }
+        svg {
+          transform: rotate(0);
+        }
       }
-
-      svg {
-        transform: rotate(0);
+    }
+    /* Touch device */
+    @media (hover: none) and (pointer: coarse) {
+      &:active {
+        color: var(--color-white);
+        background-color: var(--color-primary-light);
+        border-color: var(--color-primary-light);
+        &::after {
+          left: 130%;
+        }
+        svg {
+          transform: rotate(0);
+        }
       }
     }
   }
@@ -904,28 +912,35 @@ button {
         transition: opacity var(--transition-fast);
       }
 
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-
-        /* .card-image {
-          transform: scale(1.03);
-        } */
-
-        .card-link {
-          .link-icon {
-            transform: rotate(0deg);
+      /* Only PC */
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+          .card-link {
+            .link-icon {
+              transform: rotate(0deg);
+            }
+          }
+          &::before {
+            opacity: 0.9;
           }
         }
-
-        &::before {
-          opacity: 0.9;
-        }
       }
-
-      &:active {
-        transform: translateY(2px);
-        box-shadow: none;
+      /* Touch device */
+      @media (hover: none) and (pointer: coarse) {
+        &:active {
+          transform: translateY(2px);
+          box-shadow: none;
+          .card-link {
+            .link-icon {
+              transform: rotate(0deg);
+            }
+          }
+          &::before {
+            opacity: 0.9;
+          }
+        }
       }
     }
   }
@@ -1088,10 +1103,22 @@ button {
       transition: fill var(--transition-fast);
     }
 
-    &:hover {
-      color: var(--color-primary-light);
-      svg {
-        fill: var(--color-primary-light);
+    /* Only PC */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--color-primary-light);
+        svg {
+          fill: var(--color-primary-light);
+        }
+      }
+    }
+    /* Touch device */
+    @media (hover: none) and (pointer: coarse) {
+      &:active {
+        color: var(--color-primary-light);
+        svg {
+          fill: var(--color-primary-light);
+        }
       }
     }
   }
