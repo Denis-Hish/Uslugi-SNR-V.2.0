@@ -94,7 +94,7 @@
         background-image: url('../img/hero-image.jpg');
         background-position: center;
         background-size: cover;
-        min-height: 300px;
+        min-height: 260px;
         border-radius: var(--rounded-sm);
       }
 
