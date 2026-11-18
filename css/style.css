@@ -573,6 +573,7 @@ button {
       display: none;
       align-items: center;
       gap: 8px;
+      color: var(--color-title);
 
       .menu-toggle__icon {
         --icon-size: 22px;
